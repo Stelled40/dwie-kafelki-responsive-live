@@ -1,38 +1,58 @@
 # Dwie kafelki responsive live
 
-Neutralny projekt front-end z dwoma wariantami prezentacji opartymi o kafelki, lokalne placeholdery i tekst lorem ipsum.
+Nowoczesny, lekki i gotowy do wdrozenia koncept front-end do prezentacji produktu premium.
+Projekt jest przygotowany jako baza pod strony kampanijne, microsite produktowe i landing page'e
+z naciskiem na wizualna jakosc, szybkie ladowanie i interakcje, ktore realnie wspieraja konwersje.
 
-## Co zawiera projekt
+## Opis komercyjny
 
-1. `index.html` - karuzela 2x2 z czterema kafelkami demo.
-2. `index2.html` - wersja fullscreen z dwoma kafelkami, rozwijanym opisem i lightboxem.
-3. `sample-furniture-white-bg.svg` - lokalny material demo bez zewnetrznych linkow.
+1. Format 2x2 i fullscreen pozwala pokazac produkt z kilku perspektyw bez przeladowania trescia.
+2. Interakcje (zoom, lightbox, ekspansja kart) buduja efekt premium i wydluzaja czas kontaktu z oferta.
+3. Uklad jest responsywny i gotowy pod desktop, tablet i mobile.
+4. Struktura kodu jest prosta do rebrandingu pod dowolna marke, branze i styl wizualny.
+5. Projekt moze byc szybko rozbudowany o CTA, formularz leadowy, analityke i A/B testy.
+
+## Co zawiera repo
+
+1. index.html - wariant karuzeli 2x2 z czterema kafelkami i lokalnym materialem wideo.
+2. index2.html - wariant fullscreen z dwoma kafelkami, rozwijanym opisem i lupowaniem w lightboxie.
+3. assets/videos/kadry-1.mp4 do assets/videos/kadry-4.mp4 - lokalne klipy demo podlaczone bez zewnetrznych URL.
+4. captions-pl.vtt i descriptions-pl.vtt - podstawowe sciezki dostepnosci dla materialow wideo.
+
+## Demo
+
+1. Wariant 1: otworz index.html.
+2. Wariant 2: otworz index2.html.
+3. Rekomendowane uruchomienie przez lokalny serwer HTTP (zamiast file://), aby uniknac problemow z odtwarzaniem.
+
+Przyklad:
+
+```bash
+python -m http.server 8080
+```
+
+Nastepnie wejdz na:
+
+1. http://127.0.0.1:8080/index.html
+2. http://127.0.0.1:8080/index2.html
 
 ## Najwazniejsze funkcje
 
-1. Pelna responsywnosc na desktopie i mobile.
-2. Obsluga klawiatury: `Enter`, `Spacja`, `Escape`.
-3. Lokalne assety zamiast zewnetrznych mediow.
-4. Fallback dla niedostepnych plikow graficznych.
-5. Rozwijane opisy, lightbox i interaktywne stany kafelkow.
+1. Responsywny layout i plynne przejscia.
+2. Obsluga klawiatury i podstawowe wsparcie dostepnosci.
+3. Lokalne assety i fallback dla mediow.
+4. Interaktywne stany kafelkow i warstwa podgladu (lightbox).
 
-## Zrzuty demo
+## Material podgladowy (realne screeny + live GIF)
 
-### Podglad 1
+### Screen 1 - index.html
 
-![Podglad demo 1](./sample-furniture-white-bg.svg)
+![Screen live index](./assets/demo/index-live.png)
 
-### Podglad 2
+### Screen 2 - index2.html
 
-![Podglad demo 2](./sample-furniture-white-bg.svg)
+![Screen live index2](./assets/demo/index2-live.png)
 
-## Jak uruchomic lokalnie
+### GIF live
 
-1. Otworz folder projektu w VS Code.
-2. Uruchom Live Server albo otworz `index.html` lub `index2.html` bezposrednio w przegladarce.
-
-## Uwagi
-
-1. Z projektu usunieto zewnetrzne linki do mediow.
-2. Widoczne nazwy i opisy zostaly zastapione neutralna trescia demo.
-3. README pokazuje lokalne materialy podgladowe, wiec repo jest samowystarczalne po sklonowaniu.
+![Live GIF](./assets/demo/live-preview.gif)
