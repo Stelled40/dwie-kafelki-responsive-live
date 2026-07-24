@@ -6,14 +6,14 @@
     <title>Dwa Kafle Demo - Pelny Ekran</title>
     <style>
         :root {
-            --brand-green: #028a27;
-            --brand-gray: #4f4f4f;
-            --brand-text-dark: #2f2f2f;
-            --brand-text-light: #c1c1c1;
-            --bg: #c1c1c1;
+            --brand-green: #c89b6d;
+            --brand-gray: #2f2a28;
+            --brand-text-dark: #2a211b;
+            --brand-text-light: #d8cec4;
+            --bg: #bfb2a4;
             --overlay: rgba(47, 47, 47, 0.5);
             --overlay-strong: rgba(47, 47, 47, 0.78);
-            --focus: #04aa2f;
+            --focus: #f5cfab;
             --text: #c1c1c1;
             --underlay-shift: 0%;
         }
@@ -132,8 +132,8 @@
             text-align: left;
             color: var(--brand-text-dark);
             border-radius: 26px;
-            background: linear-gradient(180deg, rgba(2, 138, 39, 0.98) 0%, rgba(4, 170, 47, 1) 52%, rgba(2, 120, 34, 0.98) 100%);
-            border: 1px solid rgba(2, 138, 39, 0.38);
+            background: linear-gradient(165deg, rgba(40, 31, 26, 0.9) 0%, rgba(62, 47, 38, 0.86) 58%, rgba(88, 67, 52, 0.82) 100%);
+            border: 1px solid rgba(217, 180, 143, 0.5);
             box-shadow: 0 18px 34px rgba(0, 0, 0, 0.16);
             overflow: hidden;
             isolation: isolate;
@@ -166,8 +166,8 @@
             bottom: 0;
             z-index: 0;
             border-radius: 26px;
-            background: linear-gradient(180deg, rgba(250, 250, 249, 1) 0%, rgba(240, 242, 243, 1) 100%);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.82), 0 10px 28px rgba(0, 0, 0, 0.14);
+            background: linear-gradient(180deg, rgba(254, 248, 241, 0.98) 0%, rgba(244, 232, 218, 0.97) 100%);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72), 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
         .tile-caption::after {
@@ -179,8 +179,24 @@
             bottom: 0;
             z-index: 1;
             border-radius: 26px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 22%, rgba(255, 255, 255, 0) 46%);
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.16) 24%, rgba(255, 255, 255, 0.02) 42%, rgba(255, 255, 255, 0) 58%);
             pointer-events: none;
+            animation: glossy-sheen 4.8s ease-in-out infinite;
+        }
+
+        @keyframes glossy-sheen {
+            0% {
+                transform: translateX(-24%);
+                opacity: 0.72;
+            }
+            45% {
+                transform: translateX(8%);
+                opacity: 0.92;
+            }
+            100% {
+                transform: translateX(22%);
+                opacity: 0.62;
+            }
         }
 
         .tile-caption > * {
@@ -224,13 +240,13 @@
         }
 
         .caption-body::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #04aa2f 0%, #028a27 100%);
+            background: linear-gradient(180deg, #dcb48a 0%, #b88655 100%);
             border-radius: 999px;
             border: 1px solid rgba(255, 255, 255, 0.45);
         }
 
         .caption-body::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #14bc40 0%, #028a27 100%);
+            background: linear-gradient(180deg, #e5bf98 0%, #b88655 100%);
         }
 
         .tile:hover .tile-caption:not(.is-expanded) .caption-body,
@@ -318,7 +334,7 @@
         .tile-caption.is-edge-hover .caption-edge-hitbox,
         .tile-caption.is-dragging .caption-edge-hitbox {
             opacity: 1;
-            background: linear-gradient(180deg, rgba(2, 138, 39, 0.2) 0%, rgba(2, 138, 39, 0) 100%);
+            background: linear-gradient(180deg, rgba(210, 163, 113, 0.28) 0%, rgba(210, 163, 113, 0) 100%);
         }
 
         .tile-caption.is-edge-hover .caption-drag-handle,
@@ -334,7 +350,7 @@
             width: 44px;
             height: 3px;
             border-radius: 999px;
-            background: rgba(2, 138, 39, 0.78);
+            background: rgba(200, 155, 109, 0.78);
             transform: translateX(-50%);
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.48);
         }
@@ -348,7 +364,7 @@
             position: relative;
             min-height: 112px;
             overflow: hidden;
-            border: 1px solid rgba(2, 138, 39, 0.22);
+            border: 1px solid rgba(200, 155, 109, 0.35);
             border-radius: 18px;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(238, 242, 243, 0.88) 100%);
             align-items: center;
@@ -372,7 +388,7 @@
             position: absolute;
             right: 8px;
             bottom: 8px;
-            border: 1px solid rgba(2, 138, 39, 0.28);
+            border: 1px solid rgba(200, 155, 109, 0.36);
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.92);
             color: var(--brand-green);
@@ -480,7 +496,7 @@
         }
 
         .tile-caption.is-expanded .caption-body::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #04aa2f 0%, #028a27 100%);
+            background: linear-gradient(180deg, #dcb48a 0%, #b88655 100%);
         }
 
         .more-text {
@@ -507,7 +523,7 @@
         .tile:hover .tile-caption h1,
         .tile:focus-within .tile-caption h1,
         .tile-caption.is-expanded h1 {
-            color: #017321;
+            color: #916842;
         }
 
         .title-icon {
@@ -522,23 +538,17 @@
             filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.35));
         }
 
-        .title-icon-img {
-            display: inline-block;
-            object-fit: contain;
-            filter: drop-shadow(0 0 0.75px rgba(255, 255, 255, 0.96)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.28));
-        }
-
-        .title-icon-bed {
+        .title-icon-jar {
             width: 1.92em;
             height: 1.92em;
         }
 
-        .title-icon-gear {
+        .title-icon-detail {
             width: 1.92em;
             height: 1.92em;
         }
 
-        .title-icon-gear.is-spinning {
+        .title-icon-detail.is-spinning {
             animation: gear-spin 0.45s ease-in-out;
             transform-origin: center;
         }
@@ -620,7 +630,7 @@
         }
 
         .tile-caption.is-light-bg .caption-body::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #04aa2f 0%, #028a27 100%);
+            background: linear-gradient(180deg, #dcb48a 0%, #b88655 100%);
         }
 
         .tile-caption.is-light-bg .caption-body::-webkit-scrollbar-track {
@@ -748,15 +758,13 @@
                 <div class="caption-edge-hitbox" aria-hidden="true"></div>
                 <div class="caption-drag-handle" aria-hidden="true"></div>
                 <h1>
-                    <img
-                        class="title-icon title-icon-img title-icon-bed"
-                        src="bed_close.svg"
-                        alt=""
-                        aria-hidden="true"
-                        data-closed-src="bed_close.svg"
-                        data-open-src="bed_open.svg"
-                    >
-                    Kafelek Demo
+                    <svg class="title-icon title-icon-jar" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M8 6h8" />
+                        <path d="M7 8h10" />
+                        <rect x="6" y="8" width="12" height="11" rx="3" />
+                        <path d="M9 12h6" />
+                    </svg>
+                    Produkt Premium
                 </h1>
                 <div class="caption-body">
                     <p>
@@ -791,13 +799,11 @@
                 <div class="caption-edge-hitbox" aria-hidden="true"></div>
                 <div class="caption-drag-handle" aria-hidden="true"></div>
                 <h1>
-                    <img
-                        class="title-icon title-icon-img title-icon-gear"
-                        src="gear.svg"
-                        alt=""
-                        aria-hidden="true"
-                    >
-                    Detal Demo
+                    <svg class="title-icon title-icon-detail" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 3l1.3 2.8 3.1.4-2.3 2.2.6 3.1L12 10.8 9.3 11.5l.6-3.1-2.3-2.2 3.1-.4L12 3z" />
+                        <circle cx="12" cy="14.5" r="3.2" />
+                    </svg>
+                    Detal Produktu
                 </h1>
                 <div class="caption-body">
                     <p>
@@ -969,18 +975,16 @@
             }
 
             function updateCaptionIconState(caption, expanded) {
-                const bedIcon = caption.querySelector(".title-icon-bed");
-                if (bedIcon) {
-                    const closedSrc = bedIcon.dataset.closedSrc;
-                    const openSrc = bedIcon.dataset.openSrc;
-                    bedIcon.src = expanded ? openSrc : closedSrc;
+                const jarIcon = caption.querySelector(".title-icon-jar");
+                if (jarIcon) {
+                    jarIcon.style.opacity = expanded ? "1" : "0.92";
                 }
 
-                const gearIcon = caption.querySelector(".title-icon-gear");
-                if (gearIcon) {
-                    gearIcon.classList.remove("is-spinning");
-                    void gearIcon.getBoundingClientRect();
-                    gearIcon.classList.add("is-spinning");
+                const detailIcon = caption.querySelector(".title-icon-detail");
+                if (detailIcon) {
+                    detailIcon.classList.remove("is-spinning");
+                    void detailIcon.getBoundingClientRect();
+                    detailIcon.classList.add("is-spinning");
                 }
             }
 
