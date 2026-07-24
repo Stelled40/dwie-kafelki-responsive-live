@@ -5,5 +5,12 @@
 *.mkv
 *.webm
 
+# Keep curated demo clips in repository
+!kadry 1234.mp4
+!kadry-1.mp4
+!kadry-2.mp4
+!kadry-3.mp4
+!kadry-4.mp4
+
 # Optional temporary capture files
 *.tmp
