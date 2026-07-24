@@ -6,7 +6,7 @@ Neutralny projekt front-end z dwoma wariantami prezentacji opartymi o kafelki, l
 
 1. `index.html` - karuzela 2x2 z czterema kafelkami demo.
 2. `index2.html` - wersja fullscreen z dwoma kafelkami, rozwijanym opisem i lightboxem.
-3. `placeholder-hero.svg` i `placeholder-detail.svg` - lokalne materialy demo bez zewnetrznych linkow.
+3. `sample-furniture-white-bg.svg` - lokalny material demo bez zewnetrznych linkow.
 
 ## Najwazniejsze funkcje
 
@@ -20,11 +20,11 @@ Neutralny projekt front-end z dwoma wariantami prezentacji opartymi o kafelki, l
 
 ### Podglad 1
 
-![Podglad demo 1](./placeholder-hero.svg)
+![Podglad demo 1](./sample-furniture-white-bg.svg)
 
 ### Podglad 2
 
-![Podglad demo 2](./placeholder-detail.svg)
+![Podglad demo 2](./sample-furniture-white-bg.svg)
 
 ## Jak uruchomic lokalnie
 
