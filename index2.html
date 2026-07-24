@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dwa kafle - pelny ekran</title>
+    <title>Dwa Kafle Demo - Pelny Ekran</title>
     <style>
         :root {
             --brand-green: #028a27;
@@ -99,13 +99,11 @@
         .tile::after {
             content: "";
             position: absolute;
-            inset: 8% 8%;
-            background-image: url("whatermark.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.1;
-            mix-blend-mode: soft-light;
+            inset: 12% 12%;
+            background:
+                radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 36%, rgba(255, 255, 255, 0) 70%),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 14px, rgba(255, 255, 255, 0.02) 14px 28px);
+            opacity: 0.18;
             pointer-events: none;
             z-index: 1;
             transition: opacity 0.35s ease;
@@ -731,8 +729,8 @@
 </head>
 <body>
     <main class="tiles" id="tiles">
-        <div class="tile" id="item1" role="button" tabindex="0" aria-label="Kafel 1">
-            <img src="https://www.fdm.pl/static/upload/store/01_PRZEMEK/TEST/08.gif" alt="Lozko LINCOLN - ujecie glowne" loading="lazy">
+        <div class="tile" id="item1" aria-label="Kafel 1">
+            <img src="placeholder-hero.svg" alt="Placeholder demo - ujecie glowne" loading="lazy">
             <div class="tile-caption">
                 <div class="caption-edge-hitbox" aria-hidden="true"></div>
                 <div class="caption-drag-handle" aria-hidden="true"></div>
@@ -745,16 +743,16 @@
                         data-closed-src="bed_close.svg"
                         data-open-src="bed_open.svg"
                     >
-                    Lozko LINCOLN
+                    Kafelek Demo
                 </h1>
                 <div class="caption-body">
                     <p>
-                        Ujecie glowne z otwartymi pojemnikami.
-                        <span class="more-text"> To lozko ma dwa schowki na posciel, stabilny system podnoszenia i tapicerowany zaglowek. Rozwiazanie sprawdza sie w mniejszych sypialniach, gdzie liczy sie miejsce i szybki dostep do przechowywania. Dodatkowo konstrukcja jest oparta na sztywnej ramie, co poprawia podparcie materaca i ogranicza odksztalcenia podczas codziennego uzywania. Wysokie boki pomagaja utrzymac porzadek wewnatrz pojemnika, a dostep do schowkow jest wygodny nawet przy czestym otwieraniu. Wersja z pojemnikiem pomaga tez odseparowac sezonowa posciel, koce i poduszki, dzieki czemu sypialnia pozostaje bardziej uporzadkowana. Mechanizm otwierania jest zaprojektowany tak, aby ruch byl lekki i przewidywalny, a codzienne korzystanie nie wymagalo dodatkowego wysilku.</span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        <span class="more-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
                     </p>
                     <div class="caption-media-placeholder">
-                        <img src="rzut.webp" alt="Rzut lozka LINCOLN">
-                        <button class="caption-media-zoom" type="button" aria-label="Powieksz rzut lozka" data-lightbox-src="rzut.webp" data-lightbox-alt="Rzut lozka LINCOLN">
+                        <img src="placeholder-hero.svg" alt="Placeholder - grafika pomocnicza 01">
+                        <button class="caption-media-zoom" type="button" aria-label="Powieksz grafike pomocnicza 01" data-lightbox-src="placeholder-hero.svg" data-lightbox-alt="Placeholder - grafika pomocnicza 01">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <circle cx="11" cy="11" r="6.5"></circle>
                                 <path d="M16 16L21 21"></path>
@@ -766,8 +764,8 @@
             </div>
         </div>
 
-        <div class="tile" id="item2" role="button" tabindex="0" aria-label="Kafel 2">
-            <img src="https://www.fdm.pl/static/upload/store/01_PRZEMEK/TEST/09.gif" alt="Lozko LINCOLN - detal mechanizmu" loading="lazy">
+        <div class="tile" id="item2" aria-label="Kafel 2">
+            <img src="placeholder-detail.svg" alt="Placeholder demo - detal" loading="lazy">
             <div class="tile-caption">
                 <div class="caption-edge-hitbox" aria-hidden="true"></div>
                 <div class="caption-drag-handle" aria-hidden="true"></div>
@@ -778,16 +776,16 @@
                         alt=""
                         aria-hidden="true"
                     >
-                    Detal mechanizmu
+                    Detal Demo
                 </h1>
                 <div class="caption-body">
                     <p>
-                        Zblizenie sprezyn i podnoszonej konstrukcji.
-                        <span class="more-text"> Mechanizm pracuje plynnie i nie wymaga duzej sily przy otwieraniu. Konstrukcja zostala zaprojektowana tak, aby codzienne korzystanie bylo wygodne, a elementy ruchome zachowaly trwalosc przez dlugi czas. Sprezyna wspiera podnoszenie stelarza, przez co ruch jest bardziej kontrolowany i bezpieczny. Odpowiednio dobrane punkty mocowania ograniczaja luzy, a caly zestaw zachowuje stabilnosc nawet po wielu cyklach otwierania i zamykania. W praktyce daje to latwiejszy dostep do wnetrza lozka, lepsza kontrole podczas unoszenia oraz mniejsze ryzyko naglego opadania elementow. Dodatkowe wzmocnienia w newralgicznych punktach pomagaja zachowac rowna prace i dluzsza zywotnosc calego ukladu.</span>
+                        Lorem ipsum dolor sit amet, sed do eiusmod tempor.
+                        <span class="more-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
                     </p>
                     <div class="caption-media-placeholder">
-                        <img src="techniczny.png" alt="Rysunek techniczny mechanizmu lozka LINCOLN">
-                        <button class="caption-media-zoom" type="button" aria-label="Powieksz rysunek techniczny" data-lightbox-src="techniczny.png" data-lightbox-alt="Rysunek techniczny mechanizmu lozka LINCOLN">
+                        <img src="placeholder-detail.svg" alt="Placeholder - grafika pomocnicza 02">
+                        <button class="caption-media-zoom" type="button" aria-label="Powieksz grafike pomocnicza 02" data-lightbox-src="placeholder-detail.svg" data-lightbox-alt="Placeholder - grafika pomocnicza 02">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <circle cx="11" cy="11" r="6.5"></circle>
                                 <path d="M16 16L21 21"></path>
@@ -802,10 +800,10 @@
 
     <div class="lightbox" id="imageLightbox" aria-hidden="true">
         <div class="lightbox__backdrop" data-lightbox-close="true"></div>
-        <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="Powiekszenie obrazu">
+        <dialog class="lightbox__dialog" aria-modal="true" aria-label="Powiekszenie obrazu">
             <button class="lightbox__close" type="button" aria-label="Zamknij powiekszenie" data-lightbox-close="true">×</button>
             <img class="lightbox__image" id="lightboxImage" src="" alt="">
-        </div>
+        </dialog>
     </div>
 
     <script>
@@ -813,6 +811,7 @@
             const tilesContainer = document.getElementById("tiles");
             const tiles = Array.from(document.querySelectorAll(".tile"));
             const lightbox = document.getElementById("imageLightbox");
+            const lightboxDialog = document.querySelector(".lightbox__dialog");
             const lightboxImage = document.getElementById("lightboxImage");
             const inactivityTimeoutMs = 5000;
             let activeTileId = null;
@@ -988,9 +987,9 @@
 
             function attachFallbacks() {
                 const fallbackById = {
-                    item1: "Material 1 chwilowo niedostepny",
-                    item2: "Material 2 chwilowo niedostepny"
-                };
+                        item1: "Placeholder 01 chwilowo niedostepny",
+                        item2: "Placeholder 02 chwilowo niedostepny"
+                    };
 
                 tiles.forEach(tile => {
                     const image = tile.querySelector("img");
@@ -1277,7 +1276,7 @@
             }
 
             function openLightbox(src, alt) {
-                if (!lightbox || !lightboxImage) {
+                if (!lightbox || !lightboxImage || !lightboxDialog) {
                     return;
                 }
 
@@ -1285,15 +1284,17 @@
                 lightboxImage.alt = alt || "";
                 lightbox.classList.add("is-open");
                 lightbox.setAttribute("aria-hidden", "false");
+                lightboxDialog.setAttribute("open", "open");
             }
 
             function closeLightbox() {
-                if (!lightbox || !lightboxImage) {
+                if (!lightbox || !lightboxImage || !lightboxDialog) {
                     return;
                 }
 
                 lightbox.classList.remove("is-open");
                 lightbox.setAttribute("aria-hidden", "true");
+                lightboxDialog.removeAttribute("open");
                 lightboxImage.src = "";
                 lightboxImage.alt = "";
             }

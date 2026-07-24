@@ -1,48 +1,38 @@
 # Dwie kafelki responsive live
 
-Prosty projekt front-end z dwoma wariantami prezentacji produktu opartymi o kafelki i animowane media.
+Neutralny projekt front-end z dwoma wariantami prezentacji opartymi o kafelki, lokalne placeholdery i tekst lorem ipsum.
 
 ## Co zawiera projekt
 
-1. `index.html` - karuzela 2x2 z materialami wideo/GIF, opisami i rozszerzaniem aktywnego kafla.
-2. `index2.html` - wersja z dwoma duzymi kafelkami fullscreen, panelem opisu, przyciskiem CZYTAJ DALEJ i lightboxem.
+1. `index.html` - karuzela 2x2 z czterema kafelkami demo.
+2. `index2.html` - wersja fullscreen z dwoma kafelkami, rozwijanym opisem i lightboxem.
+3. `placeholder-hero.svg` i `placeholder-detail.svg` - lokalne materialy demo bez zewnetrznych linkow.
 
 ## Najwazniejsze funkcje
 
-1. Pelna responsywnosc (desktop i mobile).
-2. Obsluga klawiatury (Enter, Spacja, Escape).
-3. Lazy loading obrazow (`loading="lazy"`).
-4. Fallback dla niedostepnych mediow (komunikat zamiast obrazu).
-5. Interakcje UI: powiekszanie aktywnego kafla, rozwijanie opisu, podglad grafiki technicznej w lightboxie.
+1. Pelna responsywnosc na desktopie i mobile.
+2. Obsluga klawiatury: `Enter`, `Spacja`, `Escape`.
+3. Lokalne assety zamiast zewnetrznych mediow.
+4. Fallback dla niedostepnych plikow graficznych.
+5. Rozwijane opisy, lightbox i interaktywne stany kafelkow.
 
-## Struktura plikow
+## Zrzuty demo
 
-1. `index.html` - wariant karuzeli 2x2.
-2. `index2.html` - wariant 2-kafelkowy fullscreen.
-3. `bed_close.svg`, `bed_open.svg`, `gear.svg` - ikony naglowkow.
-4. `rzut.webp`, `techniczny.png`, `whatermark.png` - grafiki pomocnicze.
+### Podglad 1
+
+![Podglad demo 1](./placeholder-hero.svg)
+
+### Podglad 2
+
+![Podglad demo 2](./placeholder-detail.svg)
 
 ## Jak uruchomic lokalnie
 
 1. Otworz folder projektu w VS Code.
-2. Uruchom podglad przez Live Server albo otworz bezposrednio `index.html` lub `index2.html` w przegladarce.
+2. Uruchom Live Server albo otworz `index.html` lub `index2.html` bezposrednio w przegladarce.
 
-## Publikacja na GitHub
+## Uwagi
 
-Repo lokalne jest gotowe (zainicjalizowane i z pierwszym commitem). Aby opublikowac projekt jako publiczny:
-
-1. Utworz nowe repo na GitHub z widocznoscia Public.
-2. Skopiuj URL repo (np. `https://github.com/login/nazwa-repo.git`).
-3. W terminalu projektu wykonaj:
-
-```bash
-git remote add origin https://github.com/login/nazwa-repo.git
-git push -u origin master
-```
-
-Jesli chcesz pracowac na branchu `main`, zmien nazwe przed pushem:
-
-```bash
-git branch -M main
-git push -u origin main
-```
+1. Z projektu usunieto zewnetrzne linki do mediow.
+2. Widoczne nazwy i opisy zostaly zastapione neutralna trescia demo.
+3. README pokazuje lokalne materialy podgladowe, wiec repo jest samowystarczalne po sklonowaniu.
