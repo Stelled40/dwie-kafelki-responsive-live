@@ -80,7 +80,8 @@
             outline-offset: -3px;
         }
 
-        .carousel-item img {
+        .carousel-item img,
+        .carousel-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -101,7 +102,8 @@
             background: linear-gradient(135deg, #4b5563, #111827);
         }
 
-        .carousel-item:hover img {
+        .carousel-item:hover img,
+        .carousel-item:hover video {
             transform: scale(1.05);
         }
 
@@ -134,7 +136,8 @@
             background-color: transparent;
             border-color: transparent;
         }
-        .carousel-item.expanded img {
+        .carousel-item.expanded img,
+        .carousel-item.expanded video {
             transform: none;
         }
         .carousel-item.expanded .expand-icon,
@@ -221,7 +224,11 @@
 
     <div class="carousel-container">
         <div class="carousel-item" id="item1">
-            <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel - widok glowny" loading="lazy">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel - widok glowny">
+                <source src="gradient-reference.mp4" type="video/mp4">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
             <svg class="expand-icon" viewBox="0 0 24 24">
                 <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
             </svg>
@@ -231,7 +238,11 @@
             </div>
         </div>
         <div class="carousel-item" id="item2">
-            <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel - widok boczny" loading="lazy">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel - widok boczny">
+                <source src="gradient-reference.mp4" type="video/mp4">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
             <svg class="expand-icon" viewBox="0 0 24 24">
                 <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
             </svg>
@@ -241,7 +252,11 @@
             </div>
         </div>
         <div class="carousel-item" id="item3">
-            <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel - detal" loading="lazy">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel - detal">
+                <source src="gradient-reference.mp4" type="video/mp4">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
             <svg class="expand-icon" viewBox="0 0 24 24">
                 <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
             </svg>
@@ -251,7 +266,11 @@
             </div>
         </div>
         <div class="carousel-item" id="item4">
-            <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel - ujecie ogolne" loading="lazy">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel - ujecie ogolne">
+                <source src="gradient-reference.mp4" type="video/mp4">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
             <svg class="expand-icon" viewBox="0 0 24 24">
                 <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
             </svg>
@@ -379,7 +398,10 @@
                 };
 
                 items.forEach(item => {
-                    const media = item.querySelector('img');
+                    const media = item.querySelector('img, video');
+                    if (!media) {
+                        return;
+                    }
                     media.addEventListener('error', () => {
                         media.remove();
                         const fallback = document.createElement('div');

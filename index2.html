@@ -78,7 +78,8 @@
             z-index: 3;
         }
 
-        .tile > img {
+        .tile > img,
+        .tile > video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -115,7 +116,9 @@
         }
 
         .tile:hover > img,
-        .tile:focus-visible > img {
+        .tile:focus-visible > img,
+        .tile:hover > video,
+        .tile:focus-visible > video {
             transform: scale(1.04);
         }
 
@@ -355,7 +358,8 @@
             cursor: default;
         }
 
-        .caption-media-placeholder img {
+        .caption-media-placeholder img,
+        .caption-media-placeholder video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -434,13 +438,18 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.34);
         }
 
-        .lightbox__image {
+        .lightbox__image,
+        .lightbox__video {
             width: 100%;
             max-height: calc(88vh - 28px);
             object-fit: contain;
             display: block;
             border-radius: 16px;
             background: #ffffff;
+        }
+
+        .lightbox__video {
+            display: none;
         }
 
         .lightbox__close {
@@ -730,7 +739,11 @@
 <body>
     <main class="tiles" id="tiles">
         <div class="tile" id="item1" aria-label="Kafel 1">
-            <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel demo - ujecie glowne" loading="lazy">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel demo - ujecie glowne">
+                <source src="gradient-reference.mp4" type="video/mp4">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
             <div class="tile-caption">
                 <div class="caption-edge-hitbox" aria-hidden="true"></div>
                 <div class="caption-drag-handle" aria-hidden="true"></div>
@@ -751,8 +764,12 @@
                         <span class="more-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
                     </p>
                     <div class="caption-media-placeholder">
-                        <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel - grafika pomocnicza 01">
-                        <button class="caption-media-zoom" type="button" aria-label="Powieksz grafike pomocnicza 01" data-lightbox-src="sample-furniture-white-bg.svg" data-lightbox-alt="Przykladowy mebel - grafika pomocnicza 01">
+                        <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel - grafika pomocnicza 01">
+                            <source src="gradient-reference.mp4" type="video/mp4">
+                            <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                            <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+                        </video>
+                        <button class="caption-media-zoom" type="button" aria-label="Powieksz grafike pomocnicza 01" data-lightbox-src="gradient-reference.mp4" data-lightbox-alt="Przykladowy mebel - grafika pomocnicza 01" data-lightbox-type="video">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <circle cx="11" cy="11" r="6.5"></circle>
                                 <path d="M16 16L21 21"></path>
@@ -765,7 +782,11 @@
         </div>
 
         <div class="tile" id="item2" aria-label="Kafel 2">
-            <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel demo - detal" loading="lazy">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel demo - detal">
+                <source src="gradient-reference.mp4" type="video/mp4">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
             <div class="tile-caption">
                 <div class="caption-edge-hitbox" aria-hidden="true"></div>
                 <div class="caption-drag-handle" aria-hidden="true"></div>
@@ -784,8 +805,12 @@
                         <span class="more-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
                     </p>
                     <div class="caption-media-placeholder">
-                        <img src="sample-furniture-white-bg.svg" alt="Przykladowy mebel - grafika pomocnicza 02">
-                        <button class="caption-media-zoom" type="button" aria-label="Powieksz grafike pomocnicza 02" data-lightbox-src="sample-furniture-white-bg.svg" data-lightbox-alt="Przykladowy mebel - grafika pomocnicza 02">
+                        <video autoplay muted loop playsinline preload="metadata" aria-label="Przykladowy mebel - grafika pomocnicza 02">
+                            <source src="gradient-reference.mp4" type="video/mp4">
+                            <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                            <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+                        </video>
+                        <button class="caption-media-zoom" type="button" aria-label="Powieksz grafike pomocnicza 02" data-lightbox-src="gradient-reference.mp4" data-lightbox-alt="Przykladowy mebel - grafika pomocnicza 02" data-lightbox-type="video">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <circle cx="11" cy="11" r="6.5"></circle>
                                 <path d="M16 16L21 21"></path>
@@ -803,6 +828,10 @@
         <dialog class="lightbox__dialog" aria-modal="true" aria-label="Powiekszenie obrazu">
             <button class="lightbox__close" type="button" aria-label="Zamknij powiekszenie" data-lightbox-close="true">×</button>
             <img class="lightbox__image" id="lightboxImage" src="" alt="">
+            <video class="lightbox__video" id="lightboxVideo" controls playsinline preload="metadata">
+                <track kind="captions" srclang="pl" label="Polski" src="captions-pl.vtt" default>
+                <track kind="descriptions" srclang="pl" label="Opis audio" src="descriptions-pl.vtt">
+            </video>
         </dialog>
     </div>
 
@@ -813,6 +842,7 @@
             const lightbox = document.getElementById("imageLightbox");
             const lightboxDialog = document.querySelector(".lightbox__dialog");
             const lightboxImage = document.getElementById("lightboxImage");
+            const lightboxVideo = document.getElementById("lightboxVideo");
             const inactivityTimeoutMs = 5000;
             let activeTileId = null;
             let inactivityTimer = null;
@@ -992,9 +1022,13 @@
                     };
 
                 tiles.forEach(tile => {
-                    const image = tile.querySelector("img");
-                    image.addEventListener("error", () => {
-                        image.remove();
+                    const media = tile.querySelector("img, video");
+                    if (!media) {
+                        return;
+                    }
+
+                    media.addEventListener("error", () => {
+                        media.remove();
                         const fallback = document.createElement("div");
                         fallback.className = "media-fallback";
                         fallback.textContent = fallbackById[tile.id] || "Material niedostepny";
@@ -1275,20 +1309,36 @@
                 });
             }
 
-            function openLightbox(src, alt) {
-                if (!lightbox || !lightboxImage || !lightboxDialog) {
+            function openLightbox(src, alt, type = "image") {
+                if (!lightbox || !lightboxImage || !lightboxVideo || !lightboxDialog) {
                     return;
                 }
 
-                lightboxImage.src = src;
-                lightboxImage.alt = alt || "";
+                if (type === "video") {
+                    lightboxImage.style.display = "none";
+                    lightboxImage.src = "";
+                    lightboxImage.alt = "";
+                    lightboxVideo.style.display = "block";
+                    lightboxVideo.src = src;
+                    lightboxVideo.play().catch(() => {
+                        // Autoplay can be blocked by browser policies.
+                    });
+                } else {
+                    lightboxVideo.pause();
+                    lightboxVideo.style.display = "none";
+                    lightboxVideo.src = "";
+                    lightboxImage.style.display = "block";
+                    lightboxImage.src = src;
+                    lightboxImage.alt = alt || "";
+                }
+
                 lightbox.classList.add("is-open");
                 lightbox.setAttribute("aria-hidden", "false");
                 lightboxDialog.setAttribute("open", "open");
             }
 
             function closeLightbox() {
-                if (!lightbox || !lightboxImage || !lightboxDialog) {
+                if (!lightbox || !lightboxImage || !lightboxVideo || !lightboxDialog) {
                     return;
                 }
 
@@ -1297,6 +1347,10 @@
                 lightboxDialog.removeAttribute("open");
                 lightboxImage.src = "";
                 lightboxImage.alt = "";
+                lightboxImage.style.display = "block";
+                lightboxVideo.pause();
+                lightboxVideo.style.display = "none";
+                lightboxVideo.src = "";
             }
 
             function attachLightbox() {
@@ -1305,7 +1359,7 @@
                 zoomButtons.forEach(button => {
                     button.addEventListener("click", event => {
                         event.stopPropagation();
-                        openLightbox(button.dataset.lightboxSrc, button.dataset.lightboxAlt);
+                        openLightbox(button.dataset.lightboxSrc, button.dataset.lightboxAlt, button.dataset.lightboxType || "image");
                     });
                 });
 
@@ -1321,9 +1375,9 @@
 
             function updateCaptionContrast(tile) {
                 const caption = tile.querySelector(".tile-caption");
-                const image = tile.querySelector("img");
+                const media = tile.querySelector("img, video");
 
-                if (!caption || !image) {
+                if (!caption || !media) {
                     return;
                 }
 
@@ -1332,22 +1386,30 @@
                         const canvas = document.createElement("canvas");
                         const context = canvas.getContext("2d", { willReadFrequently: true });
 
-                        if (!context || !image.naturalWidth || !image.naturalHeight) {
+                        if (!context) {
+                            return;
+                        }
+
+                        const isVideo = media.tagName === "VIDEO";
+                        const sourceWidth = isVideo ? media.videoWidth : media.naturalWidth;
+                        const sourceHeightFull = isVideo ? media.videoHeight : media.naturalHeight;
+
+                        if (!sourceWidth || !sourceHeightFull) {
                             return;
                         }
 
                         const sampleWidth = 64;
                         const sampleHeight = 28;
-                        const sourceHeight = Math.max(1, Math.floor(image.naturalHeight * 0.28));
-                        const sourceY = Math.max(0, image.naturalHeight - sourceHeight);
+                        const sourceHeight = Math.max(1, Math.floor(sourceHeightFull * 0.28));
+                        const sourceY = Math.max(0, sourceHeightFull - sourceHeight);
 
                         canvas.width = sampleWidth;
                         canvas.height = sampleHeight;
                         context.drawImage(
-                            image,
+                            media,
                             0,
                             sourceY,
-                            image.naturalWidth,
+                            sourceWidth,
                             sourceHeight,
                             0,
                             0,
@@ -1374,10 +1436,18 @@
                     }
                 };
 
-                if (image.complete) {
-                    evaluate();
+                if (media.tagName === "VIDEO") {
+                    if (media.readyState >= 2) {
+                        evaluate();
+                    } else {
+                        media.addEventListener("loadeddata", evaluate, { once: true });
+                    }
                 } else {
-                    image.addEventListener("load", evaluate, { once: true });
+                    if (media.complete) {
+                        evaluate();
+                    } else {
+                        media.addEventListener("load", evaluate, { once: true });
+                    }
                 }
             }
 
