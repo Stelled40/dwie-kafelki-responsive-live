@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karuzela Materialow Wideo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 20px 0;
+            box-sizing: border-box;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header-content {
+            text-align: center;
+            margin-bottom: 30px;
+            max-width: 100vw;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .header-content h1 {
+            font-size: 2.8em;
+            margin-bottom: 8px;
+            line-height: 1.1;
+            color: #2c3e50;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-content p {
+            font-size: 1.2em;
+            margin-top: 0;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        .carousel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            
+            width: min(100vw, 900px);
+            aspect-ratio: 1 / 1;
+            
+            overflow: hidden;
+            transition: grid-template-columns 0.4s ease-in-out, grid-template-rows 0.4s ease-in-out;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .carousel-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out, grid-column 0.4s ease-in-out, grid-row 0.4s ease-in-out, aspect-ratio 0.4s ease-in-out;
+            text-align: center;
+            user-select: none;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-item:focus-visible {
+            outline: 3px solid #1f6feb;
+            outline-offset: -3px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .media-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            color: #ffffff;
+            font-weight: 600;
+            background: linear-gradient(135deg, #4b5563, #111827);
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .expand-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2.5;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            z-index: 2;
+        }
+
+        .carousel-item:hover .expand-icon {
+            opacity: 1;
+        }
+        
+        .carousel-item.expanded {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: none;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        .carousel-item.expanded img {
+            transform: none;
+        }
+        .carousel-item.expanded .expand-icon,
+        .carousel-item.expanded .item-description {
+            opacity: 0;
+        }
+
+        .carousel-item.stretched {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        /* --- STYL DLA OPISU PRODUKTU (h3 i p wewnątrz) --- */
+        .item-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.7); /* Zwiększona przezroczystość dla lepszego kontrastu */
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            box-sizing: border-box;
+            z-index: 1;
+            /* Usunięto min-height i align-items, aby zawartość sama definiowała wysokość */
+            display: block; /* Użyj block zamiast flex dla prostszego układu h3 i p */
+            text-align: left;
+        }
+        
+        .item-description h3 { /* Styl dla nagłówka w opisie */
+            font-size: 1.1em; /* Rozmiar dla tytułu produktu */
+            margin: 0 0 5px 0; /* Margines na dole, aby oddzielić od p */
+            color: #ffffff; /* Biały kolor dla tytułu */
+            font-weight: 600; /* Lekkie pogrubienie */
+            line-height: 1.2;
+        }
+
+        .item-description p { /* Styl dla zwykłego opisu w opisie */
+            font-size: 0.8em; /* Mniejszy rozmiar dla zwykłego opisu */
+            margin: 0; /* Usuń domyślne marginesy */
+            line-height: 1.4;
+            color: #e0e0e0; /* Delikatnie jaśniejszy kolor dla zwykłego tekstu */
+        }
+
+        .carousel-item:hover .item-description {
+            opacity: 1;
+        }
+
+        @media (min-width: 900px) {
+            .carousel-container {
+                width: 900px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .carousel-container {
+                width: 100%;
+            }
+            .header-content h1 {
+                font-size: 2.2em;
+            }
+            .header-content p {
+                font-size: 1em;
+            }
+            .item-description {
+                padding: 8px 10px;
+            }
+            .item-description h3 {
+                font-size: 1em;
+            }
+            .item-description p {
+                font-size: 0.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-content">
+        <h1>Łóżko kontynentalne LINCOLN</h1>
+        <p>materace, 2 pojemniki na pościel</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-item" id="item1">
+            <img src="https://www.fdm.pl/static/upload/store/01_PRZEMEK/TEST/08.gif" alt="Sofa - ujęcie z przodu" loading="lazy">
+            <svg class="expand-icon" viewBox="0 0 24 24">
+                <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
+            </svg>
+            <div class="item-description">
+                <h3>Sofa "LINCOLN"</h3>
+                <p>Nowoczesna sofa skórzana, idealna do przestronnego salonu, łączy komfort i design.</p>
+            </div>
+        </div>
+        <div class="carousel-item" id="item2">
+            <img src="https://www.fdm.pl/static/upload/store/01_PRZEMEK/TEST/09.gif" alt="Sofa - ujęcie boczne" loading="lazy">
+            <svg class="expand-icon" viewBox="0 0 24 24">
+                <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
+            </svg>
+            <div class="item-description">
+                <h3>Widok boczny</h3>
+                <p>Smukły profil i solidna konstrukcja, zapewniająca trwałość i stabilność na lata.</p>
+            </div>
+        </div>
+        <div class="carousel-item" id="item3">
+            <img src="https://www.fdm.pl/static/upload/store/01_PRZEMEK/TEST/10.gif" alt="Sofa - zbliżenie na materiał" loading="lazy">
+            <svg class="expand-icon" viewBox="0 0 24 24">
+                <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
+            </svg>
+            <div class="item-description">
+                <h3>Tekstura Materiału</h3>
+                <p>Wysokiej jakości tkanina obiciowa o przyjemnej fakturze, odporna na przetarcia.</p>
+            </div>
+        </div>
+        <div class="carousel-item" id="item4">
+            <img src="https://www.fdm.pl/static/upload/store/01_PRZEMEK/TEST/11.gif" alt="Sofa - ogólne ujęcie" loading="lazy">
+            <svg class="expand-icon" viewBox="0 0 24 24">
+                <path d="M5 3H3V5H5V3ZM19 3H21V5H19V3ZM5 21H3V19H5V21ZM19 21H21V19H19V21Z"/>
+            </svg>
+            <div class="item-description">
+                <h3>Komfort i Styl</h3>
+                <p>Perfekcyjne połączenie estetyki z ergonomicznym kształtem dla maksymalnego relaksu.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.carousel-container');
+            const items = document.querySelectorAll('.carousel-item');
+            const positionsByExpandedItem = {
+                item1: {
+                    templateColumns: '2fr 1fr',
+                    templateRows: '2fr 1fr',
+                    item1: { gridColumn: '1 / span 1', gridRow: '1 / span 1', stretched: false },
+                    item2: { gridColumn: '2 / span 1', gridRow: '1 / span 1', stretched: true },
+                    item3: { gridColumn: '1 / span 1', gridRow: '2 / span 1', stretched: true },
+                    item4: { gridColumn: '2 / span 1', gridRow: '2 / span 1', stretched: false }
+                },
+                item2: {
+                    templateColumns: '1fr 2fr',
+                    templateRows: '2fr 1fr',
+                    item1: { gridColumn: '1 / span 1', gridRow: '1 / span 1', stretched: true },
+                    item2: { gridColumn: '2 / span 1', gridRow: '1 / span 1', stretched: false },
+                    item3: { gridColumn: '1 / span 1', gridRow: '2 / span 1', stretched: false },
+                    item4: { gridColumn: '2 / span 1', gridRow: '2 / span 1', stretched: true }
+                },
+                item3: {
+                    templateColumns: '2fr 1fr',
+                    templateRows: '1fr 2fr',
+                    item1: { gridColumn: '1 / span 1', gridRow: '1 / span 1', stretched: true },
+                    item2: { gridColumn: '2 / span 1', gridRow: '1 / span 1', stretched: false },
+                    item3: { gridColumn: '1 / span 1', gridRow: '2 / span 1', stretched: false },
+                    item4: { gridColumn: '2 / span 1', gridRow: '2 / span 1', stretched: true }
+                },
+                item4: {
+                    templateColumns: '1fr 2fr',
+                    templateRows: '1fr 2fr',
+                    item1: { gridColumn: '1 / span 1', gridRow: '1 / span 1', stretched: false },
+                    item2: { gridColumn: '2 / span 1', gridRow: '1 / span 1', stretched: true },
+                    item3: { gridColumn: '1 / span 1', gridRow: '2 / span 1', stretched: true },
+                    item4: { gridColumn: '2 / span 1', gridRow: '2 / span 1', stretched: false }
+                }
+            };
+
+            let currentExpandedItem = null;
+
+            function resetItemsToDefaultAppearance() {
+                items.forEach(item => {
+                    item.classList.remove('expanded', 'stretched');
+                    item.style.transform = '';
+                    item.style.gridColumn = '';
+                    item.style.gridRow = '';
+                    item.style.aspectRatio = '1 / 1';
+                    item.style.backgroundColor = 'transparent';
+                    item.style.borderColor = 'transparent';
+                    item.style.color = '';
+                    item.style.boxShadow = '';
+                });
+            }
+
+            function resetCarouselToInitialGrid() {
+                container.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                container.style.gridTemplateRows = 'repeat(2, 1fr)';
+
+                items.forEach(item => {
+                    item.classList.remove('expanded', 'stretched');
+                    item.style.gridColumn = '';
+                    item.style.gridRow = '';
+                    item.style.transform = '';
+                    item.style.aspectRatio = '1 / 1';
+                    item.style.backgroundColor = 'transparent';
+                    item.style.borderColor = 'transparent';
+                    item.style.color = '';
+                    item.style.boxShadow = '';
+                });
+                currentExpandedItem = null;
+            }
+
+            resetCarouselToInitialGrid();
+
+            function applyLayout(expandedId) {
+                const layout = positionsByExpandedItem[expandedId];
+                container.style.gridTemplateColumns = layout.templateColumns;
+                container.style.gridTemplateRows = layout.templateRows;
+
+                items.forEach(item => {
+                    const pos = layout[item.id];
+                    item.classList.toggle('stretched', Boolean(pos.stretched));
+                    item.style.gridColumn = pos.gridColumn;
+                    item.style.gridRow = pos.gridRow;
+                    item.style.aspectRatio = pos.stretched ? '' : '1 / 1';
+                    item.style.backgroundColor = 'transparent';
+                    item.style.borderColor = 'transparent';
+                });
+            }
+
+            function toggleItem(item) {
+                const isAlreadyExpanded = item.classList.contains('expanded');
+
+                if (isAlreadyExpanded) {
+                    resetCarouselToInitialGrid();
+                    return;
+                }
+
+                resetItemsToDefaultAppearance();
+
+                item.classList.add('expanded');
+                item.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+                currentExpandedItem = item;
+
+                applyLayout(item.id);
+            }
+
+            function attachImageFallbacks() {
+                const fallbackTextById = {
+                    item1: 'Material wideo: ujecie z przodu',
+                    item2: 'Material wideo: ujecie boczne',
+                    item3: 'Material wideo: detal produktu',
+                    item4: 'Material wideo: widok ogolny'
+                };
+
+                items.forEach(item => {
+                    const media = item.querySelector('img');
+                    media.addEventListener('error', () => {
+                        media.remove();
+                        const fallback = document.createElement('div');
+                        fallback.className = 'media-fallback';
+                        fallback.textContent = fallbackTextById[item.id] || 'Material niedostepny';
+                        item.prepend(fallback);
+                    }, { once: true });
+                });
+            }
+
+            attachImageFallbacks();
+
+            items.forEach(item => {
+                item.setAttribute('role', 'button');
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('aria-label', `Rozwin material ${item.id.replace('item', '')}`);
+
+                item.addEventListener('click', () => {
+                    toggleItem(item);
+                });
+
+                item.addEventListener('keydown', event => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggleItem(item);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && currentExpandedItem) {
+                    resetCarouselToInitialGrid();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
