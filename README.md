@@ -1,5 +1,17 @@
 # Dwie kafelki responsive live
 
+## Program autora (Softpedia)
+
+To jest program autora:
+
+1. Image Converter to WebP with Preview: https://www.softpedia.com/get/Multimedia/Graphic/Image-Convertors/Image-Converter-to-WebP-with-Preview.shtml
+
+## Repozytorium GitHub
+
+Repo dla tego projektu:
+
+1. https://github.com/Stelled40/dwie-kafelki-responsive-live
+
 Nowoczesny, lekki i gotowy do wdrozenia koncept front-end do prezentacji produktu premium.
 Projekt jest przygotowany jako baza pod strony kampanijne, microsite produktowe i landing page'e
 z naciskiem na wizualna jakosc, szybkie ladowanie i interakcje, ktore realnie wspieraja konwersje.
