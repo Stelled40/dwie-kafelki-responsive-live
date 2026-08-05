@@ -39,4 +39,3 @@ Nastepnie:
 ### Powiazane linki
 
 1. Repozytorium: https://github.com/Stelled40/dwie-kafelki-responsive-live
-2. Program autora (Softpedia): https://www.softpedia.com/get/Multimedia/Graphic/Image-Convertors/Image-Converter-to-WebP-with-Preview.shtml
