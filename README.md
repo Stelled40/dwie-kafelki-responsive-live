@@ -25,6 +25,13 @@ z naciskiem na wizualna jakosc, szybkie ladowanie i interakcje, ktore realnie ws
 2. Wariant 2: otworz index2.html.
 3. Rekomendowane uruchomienie przez lokalny serwer HTTP (zamiast file://), aby uniknac problemow z odtwarzaniem.
 
+## Live (GitHub Pages)
+
+1. Strona glowna: https://stelled40.github.io/dwie-kafelki-responsive-live/
+2. Wariant 1: https://stelled40.github.io/dwie-kafelki-responsive-live/index.html
+3. Wariant 2: https://stelled40.github.io/dwie-kafelki-responsive-live/index2.html
+4. Publikacja jest automatyczna po push na branch main (workflow GitHub Actions).
+
 Przyklad:
 
 ```bash
