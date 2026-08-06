@@ -18,6 +18,7 @@ z naciskiem na wizualna jakosc, szybkie ladowanie i interakcje, ktore realnie ws
 2. index2.html - wariant fullscreen z dwoma kafelkami, rozwijanym opisem i lupowaniem w lightboxie.
 3. assets/videos/kadry-1.mp4 do assets/videos/kadry-4.mp4 - lokalne klipy demo podlaczone bez zewnetrznych URL.
 4. captions-pl.vtt i descriptions-pl.vtt - podstawowe sciezki dostepnosci dla materialow wideo.
+5. sample-furniture-white-bg.svg - lokalny poster fallback dla elementow video.
 
 ## Demo
 
@@ -31,6 +32,7 @@ z naciskiem na wizualna jakosc, szybkie ladowanie i interakcje, ktore realnie ws
 2. Wariant 1: https://stelled40.github.io/dwie-kafelki-responsive-live/index.html
 3. Wariant 2: https://stelled40.github.io/dwie-kafelki-responsive-live/index2.html
 4. Publikacja jest automatyczna po push na branch main (workflow GitHub Actions).
+5. Jezeli widzisz 404, w repo na GitHub wejdz: Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
 
 Przyklad:
 

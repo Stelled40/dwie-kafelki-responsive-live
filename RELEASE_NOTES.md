@@ -1,5 +1,16 @@
 # Release Notes
 
+## v1.0.1 - 2026-08-06
+
+Porzadki i przygotowanie repo pod publikacje GitHub Pages.
+
+### Highlights
+
+1. Usunieto stare, nieuzywane pliki i duplikaty mediow z katalogu glownego.
+2. Pozostawiono tylko aktywnie uzywane zasoby dla index.html i index2.html.
+3. Dodano workflow publikacji do GitHub Pages w .github/workflows/deploy-pages.yml.
+4. Uaktualniono README o live linki oraz kroki naprawy 404 (ustawienie Source: GitHub Actions).
+
 ## v1.0.0 - 2026-08-04
 
 Pierwsze publiczne wydanie projektu dwie-kafelki-responsive-live.
